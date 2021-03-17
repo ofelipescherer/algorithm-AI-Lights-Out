@@ -14,4 +14,4 @@ After go to your [Git Bash](https://gitforwindows.org) or other terminal of your
 In Eclipse, find the src/tests folder and just run whatever you want.
 
 # State of Spaces :clipboard:
-CURRENTLY NOT AVAILABLE
+![StateOfSpace](https://user-images.githubusercontent.com/62115215/111476547-07cafc00-870d-11eb-803a-a10bdb56546c.png)
