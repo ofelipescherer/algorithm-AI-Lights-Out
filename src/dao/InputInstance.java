@@ -42,8 +42,7 @@ public class InputInstance {
 					tiles[i][j] = Integer.parseInt(values[j]);
 				}
 			}
-			board = new Board(tiles);
-			board.setBoardType(boardType);
+			board = new Board(tiles, boardType);
 		} catch(IOException e) {
 			e.printStackTrace();
 		}

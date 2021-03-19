@@ -1,12 +1,16 @@
 package entities;
 
+
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
 
+
 public class State {
 
-	public Board board;
+	Board board;
 	List<List<Integer>> tilesPressed;
 	int boardType;
 	
@@ -30,6 +34,35 @@ public class State {
 			return true;
 		return false;
 		
+	}
+	
+	public Collection<State> makeChildren(){
+		
+		Collection<State> children = new ArrayList<>();
+		
+		for(int i=0; i<boardType; i++) {
+			for(int j=0; j<boardType; j++) {
+				State child = this.deepCopy();
+				List<Integer> list = new ArrayList<>();
+				list.add(i);
+				list.add(j);
+				child.pressATile(list);
+				children.add(child);
+			}
+
+		}
+		
+		return children;
+	}
+	
+	public State deepCopy() {
+		List<List<Integer>> tilesPressedCopied = new LinkedList<>(this.tilesPressed);
+		return new State(this.board.deepCopy(),boardType,  tilesPressedCopied);
+	}
+	
+	public void pressATile(List<Integer> tile) {
+		this.tilesPressed.add(tile);
+		this.board.pressATile(tile);
 	}
 
 	@Override
@@ -72,10 +105,11 @@ public class State {
 		res += "State level: " + this.tilesPressed.size() + "\n";
 		res += this.board + "\n";
 		for(int i=0; i<this.tilesPressed.size(); i++) {
-			for(int j=0; j<this.tilesPressed.get(i).size(); i++) {
-				res += j + ", ";
-			}
-			res += "; ";
+			res += this.tilesPressed.get(i) + "; ";
+//			for(int j=0; j<this.tilesPressed.get(i).size(); j++) {
+//				res += j + ", ";
+//			}
+//			res += "; ";
 		}
 		
 		return res;
