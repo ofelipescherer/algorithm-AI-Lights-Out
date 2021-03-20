@@ -33,8 +33,7 @@ public class Board {
 	}
 	
 	public void pressATile(List<Integer> tile) {
-		System.out.println("Tile: " + tile + boardType);
-		int row = tile.get(0);
+		int row = tile.get(0); 
 		int column = tile.get(1);
 		
 		boolean up = true;
@@ -49,7 +48,7 @@ public class Board {
 		if(row == this.boardType-1)
 			down = false;
 		if(column == 0)
-			left = false;
+			left = false; 
 		if(column == this.boardType-1) {
 			right = false;
 		}

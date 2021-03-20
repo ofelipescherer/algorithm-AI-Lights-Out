@@ -12,7 +12,7 @@ public class State {
 
 	Board board;
 	List<List<Integer>> tilesPressed;
-	int boardType;
+	public int boardType;
 	
 	public State(Board aBoard, int boardType) {
 		this.board = aBoard;
@@ -57,7 +57,7 @@ public class State {
 	
 	public State deepCopy() {
 		List<List<Integer>> tilesPressedCopied = new LinkedList<>(this.tilesPressed);
-		return new State(this.board.deepCopy(),boardType,  tilesPressedCopied);
+		return new State(this.board.deepCopy(),boardType, tilesPressedCopied);
 	}
 	
 	public void pressATile(List<Integer> tile) {
@@ -89,16 +89,9 @@ public class State {
 				return false;
 		} else if (!board.equals(other.board))
 			return false;
-		if (boardType != other.boardType)
-			return false;
-		if (tilesPressed == null) {
-			if (other.tilesPressed != null)
-				return false;
-		} else if (!tilesPressed.equals(other.tilesPressed))
-			return false;
 		return true;
 	}
-
+	
 	@Override
 	public String toString() {
 		String res = "\n";

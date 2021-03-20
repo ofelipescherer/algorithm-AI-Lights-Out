@@ -16,13 +16,18 @@ public class TestChildren {
 		
 		Collection<State> children = s.makeChildren();
 
+
+		
 		System.out.println("Original State: \n");
 		System.out.println(s);
 		
 		System.out.println("\n----------------------------------------------------------------");
 		
 		System.out.println("Children");
-		for(State c: children)
+		for(State c: children) {
 			System.out.println(c);
-	}
+			System.out.println("IS OBJECTIVE? " + c.isObjective());
+			System.out.println("-----------------------------------------------------------");
+		}
+		}
 }
