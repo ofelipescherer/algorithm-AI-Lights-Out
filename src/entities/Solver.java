@@ -21,10 +21,10 @@ public class Solver {
 		 while(stackQueueInterface.size()>0) {
 
 			 State s = stackQueueInterface.pop();
-			 System.out.println("TESTANDO ESTADO");
 			 System.out.println(s);
 			 if(s.isObjective()) {
-				 System.out.println("-------------ENCONTROU SOLUCAO----------");
+				 System.out.println("-----------------------------");
+				 System.out.println("Solution");
 				 System.out.println(s);
 				 
 				 return s;

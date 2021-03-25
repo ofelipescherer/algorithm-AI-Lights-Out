@@ -10,7 +10,7 @@ public class TesteSolver {
 	
 	public static void main(String[] args) {
 		
-		State inititalState = new State(InputInstance.getInstance("files/inputInstance4x4.in"), 4);
+		State inititalState = new State(InputInstance.getInstance("files/inputInstance3x3.in"), 3);
 		System.out.println("----------------------------------------");
 		System.out.println("Initital State:");
 		System.out.println(inititalState);
