@@ -20,6 +20,9 @@ public class TesteSolver {
 		Solver solver = new Solver(inititalState, new CustomQueue());
 		State answer = solver.solve();
 		System.out.println(answer);
+		System.out.println("----------------------------------------");
+		System.out.println("Initital State: ");
+		System.out.println(inititalState);
 		
 	}
 }
