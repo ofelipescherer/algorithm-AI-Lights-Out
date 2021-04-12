@@ -70,8 +70,6 @@ public class State {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((board == null) ? 0 : board.hashCode());
-		result = prime * result + boardType;
-		result = prime * result + ((tilesPressed == null) ? 0 : tilesPressed.hashCode());
 		return result;
 	}
 

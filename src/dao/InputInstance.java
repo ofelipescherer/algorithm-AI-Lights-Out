@@ -11,7 +11,9 @@ import entities.Board;
 
 
 public class InputInstance {
-
+	
+	public static int initialBoardType = 0;
+	
 	public static Board getInstance(String file) {
 		
 		Board board = null;
@@ -30,6 +32,8 @@ public class InputInstance {
 			
 			line = br.readLine();
 			int boardType = Integer.parseInt(line);
+			
+			initialBoardType = boardType;
 			
 			int[][] tiles = new int[boardType][boardType];
 			for(int i=0; i< boardType; i++) {

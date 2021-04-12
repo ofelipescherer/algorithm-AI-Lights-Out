@@ -1,44 +1,50 @@
 package entities;
 
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 import entities.structures.StackQueueInterface;
 
 public class Solver {
 
 	 State inicialState;
-	 StackQueueInterface stackQueueInterface;
+	 StackQueueInterface states;
+	 Set<State> closedStates;
 	
 	 
 	 public Solver(State aInicialState, StackQueueInterface aStackQueueInterface) {
 		 this.inicialState = aInicialState;
-		 this.stackQueueInterface = aStackQueueInterface;
-		 this.stackQueueInterface.push(this.inicialState);
+		 this.states = aStackQueueInterface;
+		 this.states.push(this.inicialState);
+		 closedStates = new HashSet<>();
 	 }
 	
 	 public State solve() {
 		 
-		 while(stackQueueInterface.size()>0) {
+		 while(states.size()>0) {
 
-			 State s = stackQueueInterface.pop();
+			 State s = states.pop();
 			 System.out.println(s);
 			 if(s.isObjective()) {
-				 System.out.println("-----------------------------");
-				 System.out.println("Solution");
-				 System.out.println(s);
-				 
+				 System.out.println("Solution");				 
 				 return s;
 			 }
-			 Collection<State> filhos = s.makeChildren();
-			 for(State filho: filhos) {
-				 stackQueueInterface.push(filho);
+			 
+			 if(!closedStates.contains(s))
+				 closedStates.add(s);
+			 
+			 System.out.println("Closed States size : " + closedStates.size());
+			 
+			 Collection<State> children = s.makeChildren();
+			 for(State child: children) {
+				 if(!closedStates.contains(child))
+					 states.push(child);
 			 }
 			 
 
 		 }
-		 
-		 System.out.println("nao encontrou solucao");
-		 
+		 System.out.println("This board doesn't have a solution");
 		 return null;
 	 }
 }
