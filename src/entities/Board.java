@@ -44,7 +44,7 @@ public class Board {
 		if(row == 0)
 			up = false;
 		//We cannot use else if, because the tile can be in a corner, 
-		//so if we use else if, only one of the variables will turn of   	
+		//so if we use else if, only one of the variables will turn off   	
 		if(row == this.boardType-1)
 			down = false;
 		if(column == 0)
@@ -53,14 +53,14 @@ public class Board {
 			right = false;
 		}
 		
-		//First let change the proper tile
+		//First let's change the proper tile
 		if(this.tiles[row][column] == 0) {
 			this.tiles[row][column] = 1;
 		} else {
 			this.tiles[row][column] = 0;
 		}
 		
-		//Change the adjacents tiles
+		//Change the adjacent tiles
 		if(up) {
 			if(this.tiles[row-1][column] == 0) {
 				this.tiles[row-1][column] = 1;

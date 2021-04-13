@@ -10,9 +10,9 @@ import java.util.List;
 
 public class State {
 
-	Board board;
-	List<List<Integer>> tilesPressed;
-	public int boardType;
+	private Board board;
+	private List<List<Integer>> tilesPressed;
+	private int boardType;
 	
 	public State(Board aBoard, int boardType) {
 		this.board = aBoard;
@@ -49,9 +49,7 @@ public class State {
 				child.pressATile(list);
 				children.add(child);
 			}
-
 		}
-		
 		return children;
 	}
 	
@@ -97,10 +95,6 @@ public class State {
 		res += this.board + "\n";
 		for(int i=0; i<this.tilesPressed.size(); i++) {
 			res += this.tilesPressed.get(i) + "; ";
-//			for(int j=0; j<this.tilesPressed.get(i).size(); j++) {
-//				res += j + ", ";
-//			}
-//			res += "; ";
 		}
 		
 		return res;

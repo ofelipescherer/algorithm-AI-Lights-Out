@@ -8,9 +8,9 @@ import entities.structures.StackQueueInterface;
 
 public class Solver {
 
-	 State inicialState;
-	 StackQueueInterface states;
-	 Set<State> closedStates;
+	 private State inicialState;
+	 private StackQueueInterface states;
+	 private Set<State> closedStates;
 	
 	 
 	 public Solver(State aInicialState, StackQueueInterface aStackQueueInterface) {
@@ -27,24 +27,28 @@ public class Solver {
 			 State s = states.pop();
 			 System.out.println(s);
 			 if(s.isObjective()) {
-				 System.out.println("Solution");				 
 				 return s;
 			 }
 			 
-			 if(!closedStates.contains(s))
+			 if(!closedStates.contains(s)) 
 				 closedStates.add(s);
 			 
 			 System.out.println("Closed States size : " + closedStates.size());
-			 
+			 	 
 			 Collection<State> children = s.makeChildren();
 			 for(State child: children) {
 				 if(!closedStates.contains(child))
-					 states.push(child);
+					 states.push(child); 
 			 }
-			 
+
 
 		 }
 		 System.out.println("This board doesn't have a solution");
 		 return null;
 	 }
+
+	public Set<State> getClosedStates() {
+		return closedStates;
+	}
+	 
 }
